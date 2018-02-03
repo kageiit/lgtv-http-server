@@ -34,5 +34,8 @@ node_modules
 ./client-key.txt
 ./apis/client-key.txt
 
+#node
+package-lock.json
+
 # Config
 ./config.json

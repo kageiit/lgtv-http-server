@@ -21,15 +21,21 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use(express.static('public'))
 
-app.get('/', function(req, res, next) {
-  res.type('html').sendFile(__dirname + '/index.html');
-});
-
-app.use('/input', require('./apis/change-input'));
-app.use('/volume', require('./apis/change-volume'));
-app.use('/alert', require('./apis/alert'));
+// Power
 app.use('/off', require('./apis/turn-off'));
 app.use('/on', require('./apis/turn-on'));
+
+// Volume
+app.use('/volume', require('./apis/change-volume'));
+
+// Apps
+app.use('/start', require('./apis/start-app'));
+
+// Alert
+app.use('/alert', require('./apis/alert'));
+
+// Input
+app.use('/input', require('./apis/change-input'));
 
 app.listen(5555, function () {
   console.log('LGTV http server is up in http://localhost:5555')
